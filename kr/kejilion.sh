@@ -1187,7 +1187,7 @@ iptables_panel() {
 
 			  5)
 				  # IP 화이트리스트
-				  read -e -p "릴리스하려면 IP 또는 IP 세그먼트를 입력하십시오." o_ip
+				  read -e -p "해제 할 IP 또는 IP 세그먼트를 입력하십시오." o_ip
 				  allow_ip $o_ip
 				  ;;
 			  6)
@@ -2123,7 +2123,7 @@ web_security() {
 
 				  22)
 					  send_stats "5 초 방패의 높은 하중"
-					  echo -e "${gl_huang}웹 사이트는 5 분마다 자동으로 감지됩니다. 높은 부하가 감지되면 방패가 자동으로 켜지고 5 초 동안 낮은 부하가 자동으로 꺼집니다.${gl_bai}"
+					  echo -e "${gl_huang}웹 사이트는 5 분마다 자동으로 감지됩니다. 높은 하중의 감지에 도달하면 방패가 자동으로 켜지고 낮은 부하가 자동으로 5 초 동안 꺼집니다.${gl_bai}"
 					  echo "--------------"
 					  echo "CF 매개 변수 가져 오기 :"
 					  echo -e "CF 배경의 오른쪽 상단 모서리로 이동하여 왼쪽의 API 토큰을 선택하고 얻습니다.${gl_huang}Global API Key${gl_bai}"
@@ -3958,7 +3958,7 @@ frps_panel() {
 
 			8)
 				send_stats "IP 액세스를 차단하십시오"
-				echo "반세기 도메인 이름에 액세스 한 경우이 기능을 사용하여 IP+ 포트 액세스를 차단할 수 있습니다."
+				echo "반세기 도메인 이름에 액세스 한 경우이 기능을 사용하여 IP+ 포트 액세스를 차단하십시오."
 				read -e -p "차단 해야하는 포트를 입력하십시오." frps_port
 				block_host_port "$frps_port" "$ipv4_address"
 				;;
@@ -5010,7 +5010,7 @@ elrepo_install() {
 		linux_Settings
 	fi
 	# 감지 된 운영 체제 정보를 인쇄합니다
-	echo "운영 체제 감지 :$os_name $os_version"
+	echo "감지 된 운영 체제 :$os_name $os_version"
 	# 시스템 버전에 따라 해당 Elrepo 창고 구성을 설치하십시오.
 	if [[ "$os_version" == 8 ]]; then
 		echo "Elrepo 저장소 구성 (버전 8)을 설치하십시오 ..."
@@ -5839,7 +5839,7 @@ list_connections() {
 # 새 연결을 추가하십시오
 add_connection() {
 	send_stats "새 연결을 추가하십시오"
-	echo "새 연결을 만드는 예 :"
+	echo "새 연결 예제 :"
 	echo "- 연결 이름 : my_server"
 	echo "-IP 주소 : 192.168.1.100"
 	echo "- 사용자 이름 : 루트"
@@ -8049,7 +8049,7 @@ linux_ldnmp() {
 	  echo "Redis Port : 6379"
 	  echo ""
 	  echo "웹 사이트 URL : https : //$yuming"
-	  echo "백엔드 로그인 경로 : /admin"
+	  echo "백그라운드 로그인 경로 : /admin"
 	  echo "------------------------"
 	  echo "사용자 이름 : 관리자"
 	  echo "비밀번호 : 관리자"
@@ -13745,7 +13745,7 @@ linux_file() {
 
 				# -r 옵션을 사용하여 디렉토리를 재귀 적으로 복사하십시오
 				cp -r "$src_path" "$dest_path" && echo "파일 또는 디렉토리가 복사되었습니다$dest_path" || echo "파일이나 디렉토리를 복사하지 못했습니다"
-				send_stats "파일 또는 디렉토리를 복사하십시오"
+				send_stats "파일 또는 디렉토리를 복사합니다"
 				;;
 
 
