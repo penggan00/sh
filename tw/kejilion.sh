@@ -3269,7 +3269,7 @@ EOF
 }
 
 # 直接開啟主配置/覆蓋配置編輯（nano）
-# 优先编辑 /etc/fail2ban/jail.d/sshd.local（更安全），若不存在则创建
+# 優先編輯 /etc/fail2ban/jail.d/sshd.local（更安全），若不存在則創建
 f2b_edit_config() {
 	root_use
 	install nano
@@ -4587,7 +4587,7 @@ yt_menu_pro() {
 				send_stats "大量影片下載"
 				install nano
 				if [ ! -f "$URL_FILE" ]; then
-				  echo -e "# 输入多个视频链接地址\n# https://www.bilibili.com/bangumi/play/ep733316?spm_id_from=333.337.0.0&from_spmid=666.25.episode.0" > "$URL_FILE"
+				  echo -e "# 輸入多個視訊連結位址\n# https://www.bilibili.com/bangumi/play/ep733316?spm_id_from=333.337.0.0&from_spmid=666.25.episode.0" > "$URL_FILE"
 				fi
 				nano $URL_FILE
 				echo "現在開始批量下載..."
@@ -6118,7 +6118,7 @@ net.core.wmem_default = $(echo "$TCP_WMEM" | awk '{print $2}')
 net.ipv4.tcp_rmem = $TCP_RMEM
 net.ipv4.tcp_wmem = $TCP_WMEM
 
-# ── 连接队列 ──
+# ── 連接隊列 ──
 net.core.somaxconn = $SOMAXCONN
 net.core.netdev_max_backlog = $BACKLOG
 net.ipv4.tcp_max_syn_backlog = $SYN_BACKLOG
@@ -8229,7 +8229,7 @@ docker_ssh_migration() {
 		read -e -p  "請輸入要遷移的備份目錄:" BACKUP_DIR
 		[[ ! -d "$BACKUP_DIR" ]] && { echo -e "${gl_hong}備份目錄不存在${gl_bai}"; return; }
 
-		kj_ssh_read_host_user_port "目標伺服器IP:" "目标服务器SSH用户名 [默认root]: " "目標伺服器SSH連接埠 [預設22]:" "root" "22"
+		kj_ssh_read_host_user_port "目標伺服器IP:" "目標伺服器SSH用戶名 [預設root]:" "目標伺服器SSH連接埠 [預設22]:" "root" "22"
 		local TARGET_IP="$KJ_SSH_HOST"
 		local TARGET_USER="$KJ_SSH_USER"
 		local TARGET_PORT="$KJ_SSH_PORT"
@@ -10709,7 +10709,7 @@ EOF
 
 	add-openclaw-provider-interactive() {
 		send_stats "OpenClaw API新增"
-		echo "=== 互動式新增 OpenClaw Provider (全量模型) ==="
+		echo "=== 互動式加入 OpenClaw Provider (全量模型) ==="
 
 		# 1. Provider 名稱
 		read -erp "請輸入 Provider 名稱 (如: deepseek):" provider_name
@@ -11390,7 +11390,7 @@ with open(path, 'w', encoding='utf-8') as f:
     f.write('\n')
 
 print(f'🗑️ 已刪除 provider: {name}')
-print(f'🧹 已清理 defaults.models 中 {len(removed_refs)} 个关联模型引用')
+print(f'🧹 已清理 defaults.models 中 {len(removed_refs)} 個關聯模型引用')
 PY
 		local rc=$?
 		case "$rc" in
@@ -12116,7 +12116,7 @@ PYTHON_EOF
 		while true; do
 			clear
 			echo "========================================"
-			echo "            插件管理 (安装/删除)            "
+			echo "外掛程式管理 (安裝/刪除)"
 			echo "========================================"
 			echo "當前插件列表:"
 			openclaw plugins list
@@ -12931,7 +12931,7 @@ if os.path.isdir(agents_root):
 
 		local archive_path
 		archive_path=$(openclaw_read_import_path "請輸入 OpenClaw 專案備份包路徑")
-		[ -z "$archive_path" ] && { echo "❌ 未输入备份路径"; break_end; return 1; }
+		[ -z "$archive_path" ] && { echo "❌ 未輸入備份路徑"; break_end; return 1; }
 
 		local tmp_unpack
 		tmp_unpack=$(mktemp -d) || return 1
@@ -12944,7 +12944,7 @@ if os.path.isdir(agents_root):
 		while IFS= read -r rel; do
 			[ -z "$rel" ] && continue
 			if ! openclaw_is_safe_relpath "$rel" || ! openclaw_restore_path_allowed project "$rel"; then
-				echo "❌ 检测到非法或越权路径: $rel"
+				echo "❌ 偵測到非法或越權路徑:$rel"
 				invalid=1
 				break
 			fi
@@ -12954,7 +12954,7 @@ if os.path.isdir(agents_root):
 		if [ "$invalid" -ne 0 ]; then
 			rm -f "$valid_list"
 			rm -rf "$tmp_unpack"
-			echo "❌ 还原中止：存在不安全路径"
+			echo "❌ 還原中止：存在不安全路徑"
 			break_end
 			return 1
 		fi
@@ -13142,7 +13142,7 @@ if os.path.isdir(agents_root):
 		fi
 
 		if rm -f -- "$target_path"; then
-			echo "✅ 删除成功: $target_file"
+			echo "✅ 刪除成功:$target_file"
 		else
 			echo "❌ 刪除失敗:$target_file"
 		fi
@@ -13632,7 +13632,7 @@ EOF
 			echo "模式: 僅寫入配置（未安裝/未下載）"
 		fi
 		if [ "$OPENCLAW_MEMORY_PREHEAT" = "true" ]; then
-			echo "索引: 已执行"
+			echo "索引: 已執行"
 		else
 			echo "索引: 已跳過"
 		fi
@@ -13678,7 +13678,7 @@ EOF
 		fi
 		echo "確認後將自動安裝/下載、寫入設定、建置索引並重新啟動網關"
 		echo "進階選項: 輸入 config 僅寫入設定（不安裝不下載、不索引、不重新啟動）"
-		read -e -p "输入 yes 确认继续（默认 N）: " confirm_step
+		read -e -p "輸入 yes 確認繼續（預設 N）:" confirm_step
 		case "$confirm_step" in
 			yes|YES)
 				OPENCLAW_MEMORY_PREHEAT="true"
@@ -14505,7 +14505,7 @@ PY
 	}
 
 	openclaw_permission_apply_full() {
-		send_stats "OpenClaw权限-完全开放模式"
+		send_stats "OpenClaw權限-完全開放模式"
 		openclaw_permission_require_openclaw || return 1
 		openclaw_permission_backup_current || true
 		local failed=0
@@ -14838,7 +14838,7 @@ for idx,item in enumerate(agents,1):
 		[ -z "$workspace" ] && workspace="~/.openclaw/workspace-${agent_id}"
 		echo "將創建智能體:$agent_id"
 		echo "工作目錄:$workspace"
-		read -e -p "输入 yes 确认继续: " confirm
+		read -e -p "輸入 yes 確認繼續:" confirm
 		[ "$confirm" = "yes" ] || { echo "已取消"; return 1; }
 		if openclaw agents add "$agent_id" --workspace "$workspace"; then
 			echo "✅ 智能體創建成功:$agent_id"
@@ -14887,7 +14887,7 @@ for idx,item in enumerate(bindings,1):
 		read -e -p "請輸入智能體 ID:" agent_id
 		read -e -p "請輸入路由綁定值（如 telegram:ops / discord:guild-a）:" bind_value
 		{ [ -z "$agent_id" ] || [ -z "$bind_value" ]; } && echo "已取消：參數不能為空​​。" && return 1
-		echo "将绑定智能体 [$agent_id] -> [$bind_value]"
+		echo "將綁定智能體 [$agent_id] -> [$bind_value]"
 		read -e -p "輸入 yes 確認繼續:" confirm
 		[ "$confirm" = "yes" ] || { echo "已取消"; return 1; }
 		if openclaw agents bind --agent "$agent_id" --bind "$bind_value"; then
@@ -21031,7 +21031,7 @@ linux_file() {
 				send_stats "壓縮檔案/目錄"
 				;;
 			22) # 解压文件/目录
-				read -e -p "請輸入要解壓縮的檔名 (.tar.gz):" filename
+				read -e -p "請輸入要解壓縮的檔案名稱 (.tar.gz):" filename
 				install tar
 				tar -xzvf "$filename" && echo "已解壓縮$filename" || echo "解壓縮失敗"
 				send_stats "解壓縮檔案/目錄"
@@ -21443,7 +21443,7 @@ while true; do
 			CheckFirstRun_true
 			yinsiyuanquan2
 			cp -f ~/kejilion.sh /usr/local/bin/k > /dev/null 2>&1
-			echo -e "${gl_lv}腳本已更新至最新版本！${gl_huang}v$sh_v_new${gl_bai}"
+			echo -e "${gl_lv}腳本已更新到最新版本！${gl_huang}v$sh_v_new${gl_bai}"
 			send_stats "腳本已經最新$sh_v_new"
 			break_end
 			~/kejilion.sh
